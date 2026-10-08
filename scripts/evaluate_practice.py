@@ -103,8 +103,17 @@ def run_trackeval(trackeval_root: Path, run_name: str, benchmark: str, split: st
     Raises:
         subprocess.CalledProcessError: Khi TrackEval thoát với mã khác 0.
     """
+    # TrackEval chạy ở tiến trình mới nên cần vá alias NumPy ngay trong tiến trình đó.
+    bootstrap = (
+        "import runpy, sys, numpy as np; "
+        "np.float = float; np.int = int; "
+        "sys.argv = sys.argv[1:]; "
+        "runpy.run_path(sys.argv[0], run_name='__main__')"
+    )
     cmd = [
         sys.executable,
+        "-c",
+        bootstrap,
         str(trackeval_root / "scripts" / "run_mot_challenge.py"),
         "--GT_FOLDER", str(trackeval_root / "data" / "gt" / "mot_challenge"),
         "--TRACKERS_FOLDER", str(trackeval_root / "data" / "trackers" / "mot_challenge"),
