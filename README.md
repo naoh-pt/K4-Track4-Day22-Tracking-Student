@@ -6,18 +6,23 @@ Nhóm 2 người một máy. Detector đã khóa. Bạn chọn tracker và ngư�
 
 1. Tạo môi trường một lần:
 
-```bash
+```powershell
 conda env create -f environment.yml
 conda activate cv_robotics_lab21
+uv pip install --python "$env:CONDA_PREFIX/python.exe" -r requirements.txt --override dependency_overrides.txt
+python -m ipykernel install --user --name cv_robotics_lab21 --display-name "Python 3.11 (Tracking lab)"
 git clone https://github.com/JonathonLuiten/TrackEval.git
-pip install -e TrackEval/
+uv pip install --python "$env:CONDA_PREFIX/python.exe" --no-deps -e TrackEval/
 ```
+
+BoxMOT của lab ghim NumPy cũ; file override dùng NumPy/OpenCV tương thích Python 3.11 và giữ nguyên BoxMOT `10.0.42`.
 
 2. Tải ảnh năm video: [data_lab21.zip](https://drive.google.com/file/d/1UeVPQd6j5pSzxoJDcKJrerT9SL3vJLDt/view?usp=sharing). Giải nén, rồi gán đường dẫn thư mục chứa `video_1` … `video_5`:
 
-```bash
-export LAB_DATA=/đường/dẫn/lab_data
-python scripts/check_data.py --lab-data-root "$LAB_DATA"
+```powershell
+$env:LAB_DATA = (Resolve-Path ".\lab_data").Path
+$env:PYTHONIOENCODING = "utf-8"
+python scripts/check_data.py --lab-data-root "$env:LAB_DATA"
 ```
 
 Cả năm video phải có ảnh. Chỉ `video_1` có nhãn.
@@ -60,3 +65,5 @@ python scripts/evaluate_practice.py \
 - `submission_template/BAO_CAO_mau.md` đã điền. Số HOTA / MOTA / IDF1 chỉ bắt buộc cho `video_1`.
 
 Chi tiết từng bước, sự cố, và lịch 2 giờ: [HUONG_DAN.md](HUONG_DAN.md).
+
+Kết quả rà soát và minh chứng hoàn thành từng bước: [KIEM_TRA_CP.md](submission_template/KIEM_TRA_CP.md).

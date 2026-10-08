@@ -1,0 +1,24 @@
+{
+  "python": "3.11.17",
+  "ultralytics": "8.4.174",
+  "boxmot": "10.0.42",
+  "torch": "2.14.1",
+  "opencv-python": "4.11.0.86",
+  "numpy": "1.26.4",
+  "scipy": "1.17.1",
+  "pytest": "9.1.1",
+  "setuptools": "80.10.2",
+  "nbclient": "0.11.0",
+  "detector": {
+    "file": "yolo26n.pt",
+    "imgsz": 640,
+    "classes": [
+      0
+    ],
+    "sha256": "9b09cc8bf347f0fc8a5f7657480587f25db09b34bf33b0652110fb03a8ad4fef"
+  },
+  "reid": {
+    "file": "osnet_x0_25_msmt17.pt",
+    "sha256": "6f57607fed9f502b9efed546108132ee715df5a5b6e6932c6269bacb47f59f99"
+  }
+}

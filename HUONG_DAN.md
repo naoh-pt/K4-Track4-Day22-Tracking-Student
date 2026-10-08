@@ -37,7 +37,7 @@ Giảng viên phát thư mục `lab_data`. Xem `preview/video_N.mp4` để nắm
 
 | Phút | Việc |
 |---|---|
-| 0–15 | Tạo env, cài TrackEval, `export LAB_DATA`, chạy `check_data.py` |
+| 0–15 | Tạo env, cài TrackEval, đặt `LAB_DATA`, chạy `check_data.py` |
 | 15–35 | `on_tap_metrics.ipynb`: đọc MOTA / IDF1 / HOTA, rồi YOLO một frame của `video_1` |
 | 35–45 | Baseline: `video_1` + ByteTrack, tối đa 150 frame, xem video thử |
 | 45–80 | Mỗi video thử ít nhất 2 tracker, mỗi lần đổi một tham số, rồi chạy **đủ frame** cho bản nộp |
@@ -50,20 +50,25 @@ Nếu máy chậm, bớt lượt quét tham số ở video đông. Vẫn nộp �
 
 Một lần trên máy:
 
-```bash
+```powershell
 conda env create -f environment.yml
 conda activate cv_robotics_lab21
+uv pip install --python "$env:CONDA_PREFIX/python.exe" -r requirements.txt --override dependency_overrides.txt
+python -m ipykernel install --user --name cv_robotics_lab21 --display-name "Python 3.11 (Tracking lab)"
 git clone https://github.com/JonathonLuiten/TrackEval.git
-pip install -e TrackEval/
+uv pip install --python "$env:CONDA_PREFIX/python.exe" --no-deps -e TrackEval/
 ```
+
+BoxMOT `10.0.42` ghim NumPy quá cũ cho Python 3.11/OpenCV của lab và còn dùng `pkg_resources`. File `dependency_overrides.txt` chọn NumPy `1.26.4`, OpenCV `4.11.0.86`, setuptools `<81`; detector và phiên bản tracker vẫn giữ nguyên. Trên Linux/macOS, thay đường dẫn Python trong hai lệnh `uv` bằng `"$CONDA_PREFIX/bin/python"`.
 
 Lần sau chỉ cần `conda activate cv_robotics_lab21`.
 
 Tải ảnh năm video: [data_lab21.zip](https://drive.google.com/file/d/1UeVPQd6j5pSzxoJDcKJrerT9SL3vJLDt/view?usp=sharing). Giải nén, rồi gán `LAB_DATA` tới thư mục chứa `video_1` … `video_5`:
 
-```bash
-export LAB_DATA=/đường/dẫn/lab_data
-python scripts/check_data.py --lab-data-root "$LAB_DATA"
+```powershell
+$env:LAB_DATA = "D:\đường\dẫn\lab_data"
+$env:PYTHONIOENCODING = "utf-8"
+python scripts/check_data.py --lab-data-root "$env:LAB_DATA"
 ```
 
 Kỳ vọng: cả 5 video có ảnh; chỉ `video_1` ghi "có nhãn".
@@ -112,6 +117,14 @@ Gợi ý khi xem:
 - Hộp nhấp nháy trên nền, bóng, vật không phải người: `--conf` có thể đang thấp.
 
 ## Bước F — Số liệu video_1 và báo cáo
+
+Nếu gói ảnh thiếu `video_1/eval_config.json`, dùng cấu hình lab đi kèm repo trước khi chấm:
+
+```powershell
+Copy-Item submission_template/eval_config.json "$env:LAB_DATA/video_1/eval_config.json"
+```
+
+Cấu hình này chỉ đặt tên thư mục chấm và nhánh `train`, dùng nhãn có sẵn của `video_1`.
 
 Chỉ `video_1`:
 

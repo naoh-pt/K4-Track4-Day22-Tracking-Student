@@ -1,0 +1,57 @@
+[
+  {
+    "video": "video_1",
+    "anh": 600,
+    "frame_preview": 600,
+    "dong_MOT": 3531,
+    "ID": 36,
+    "frame_cuoi_MOT": 600,
+    "sha256": "b51eafaf175291744cd961802e6dc02ec50085d7383ef760414e9be26e8c4470",
+    "frame_co_ket_qua": 600,
+    "dinh_dang_hop_le": true
+  },
+  {
+    "video": "video_2",
+    "anh": 1050,
+    "frame_preview": 1050,
+    "dong_MOT": 10630,
+    "ID": 43,
+    "frame_cuoi_MOT": 1050,
+    "sha256": "e2b7e1c9764d1dfe4ce04daf422d23c7f9de8a5842bfd9569e75a1b5b144b8e6",
+    "frame_co_ket_qua": 1050,
+    "dinh_dang_hop_le": true
+  },
+  {
+    "video": "video_3",
+    "anh": 837,
+    "frame_preview": 837,
+    "dong_MOT": 5043,
+    "ID": 161,
+    "frame_cuoi_MOT": 837,
+    "sha256": "0a71bbd75fdd6e6dfe62ff7d460a84e3f358aac1ed2f37a154dc68865b68ecbf",
+    "frame_co_ket_qua": 837,
+    "dinh_dang_hop_le": true
+  },
+  {
+    "video": "video_4",
+    "anh": 900,
+    "frame_preview": 900,
+    "dong_MOT": 6625,
+    "ID": 70,
+    "frame_cuoi_MOT": 900,
+    "sha256": "2fd6efd325285548891729addab934f7996b867a61d3965230e5466fdc149b2d",
+    "frame_co_ket_qua": 900,
+    "dinh_dang_hop_le": true
+  },
+  {
+    "video": "video_5",
+    "anh": 750,
+    "frame_preview": 750,
+    "dong_MOT": 3333,
+    "ID": 79,
+    "frame_cuoi_MOT": 750,
+    "sha256": "8b540182dfc23eff1cda00dcee67f54eca3d12363a2d21d594ef4994404055a3",
+    "frame_co_ket_qua": 750,
+    "dinh_dang_hop_le": true
+  }
+]

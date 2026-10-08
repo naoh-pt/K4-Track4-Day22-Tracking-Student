@@ -25,5 +25,5 @@ Conda env `cv_robotics_lab21` (`environment.yml`).
 
 ```bash
 pytest
-python scripts/check_data.py --lab-data-root "$LAB_DATA"
+python scripts/check_data.py --lab-data-root lab_data
 ```

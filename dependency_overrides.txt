@@ -1,0 +1,5 @@
+# BoxMOT 10.0.42 ghim NumPy 1.23.1, không tương thích Python 3.11/OpenCV của lab.
+# Dùng với: uv pip install -r requirements.txt --override dependency_overrides.txt
+numpy==1.26.4
+opencv-python==4.11.0.86
+setuptools<81

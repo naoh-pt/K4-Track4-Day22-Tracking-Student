@@ -1,4 +1,4 @@
-# Cài trong env cv_robotics_lab21: pip install -r requirements.txt
+# Cài bằng uv và dependency_overrides.txt (xem HUONG_DAN.md, bước C).
 # TrackEval cài riêng bằng git clone (xem HUONG_DAN.md, bước C).
 
 ultralytics>=8.4
@@ -11,3 +11,7 @@ scipy
 filterpy
 matplotlib
 pytest
+nbformat
+nbclient
+ipykernel
+setuptools<81
