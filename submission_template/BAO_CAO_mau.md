@@ -1,6 +1,6 @@
 # Báo cáo lab: chọn tracker cho 5 video
 
-**Nhóm:** ………………………… **Thành viên:** …………………………
+**Nhóm:** TH001 **Thành viên:** Phan Trọng Hoàn (2A202602954), Nguyễn Văn Tứ (2A202602586)
 
 Detector cố định: `yolo26n.pt`, ảnh 640 px, Re-ID `osnet_x0_25_msmt17`. Không đổi các mục này trong bài nộp chính.
 
